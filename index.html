@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=screen-orientation content=portrait><meta name=apple-mobile-web-app-capable content=yes><meta name=format-detection content="telephone=no"><meta name=full-screen content=yes><meta name=x5-fullscreen content=true><title>云饰网</title><link href=./static/css/app.3b01bb425d621b47e77379e48e86f095.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.bd01d3c7698433a73a4f.js></script><script type=text/javascript src=./static/js/app.02318b18e853e14e16ee.js></script></body><script type=text/javascript>// 扩展API加载完毕后调用onPlusReady回调函数 
+		document.addEventListener( "plusready", onPlusReady, false );
+		var r = null; 
+		// 扩展API加载完毕，现在可以正常调用扩展API 
+		function onPlusReady() { 
+			r = plus.audio.getRecorder(); 
+			console.log(r);
+			console.log(1);
+		}
+		function startRecord() {
+			if ( r == null ) {
+				alert( "Device not ready!" );
+				return; 
+			} 
+			r.record( {filename:"_doc/audio/"}, function () {
+				alert( "Audio record success!" );
+			}, function ( e ) {
+				alert( "Audio record failed: " + e.message );
+			} );
+		}
+		function stopRecord() {
+			r.stop(); 
+		}</script></html>
